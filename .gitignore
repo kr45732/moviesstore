@@ -1,2 +1,4 @@
 /.venv
 /.idea
+moviesstore/home/__pycache__
+moviesstore/__pycache__
