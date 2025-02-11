@@ -1,4 +1,4 @@
 /.venv
 /.idea
-moviesstore/home/__pycache__
-moviesstore/__pycache__
+__pycache__/
+.DS_Store
