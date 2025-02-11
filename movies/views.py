@@ -2,6 +2,7 @@ from django.shortcuts import render
 from django.shortcuts import render
 from .models import Movie
 
+
 def index(request):
     search_term = request.GET.get('search')
     if search_term:
@@ -14,8 +15,9 @@ def index(request):
     return render(request, 'movies/index.html',
                   {'template_data': template_data})
 
+
 def show(request, id):
-    movie =  Movie.objects.get(id=id)
+    movie = Movie.objects.get(id=id)
     template_data = {}
     template_data['title'] = movie.name
     template_data['movie'] = movie
