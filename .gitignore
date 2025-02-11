@@ -2,3 +2,8 @@
 /.idea
 __pycache__/
 .DS_Store
+accounts\__pycache__
+cart\__pycache__
+home\__pycache__
+movies\__pycache__
+moviesstore\__pycache__
