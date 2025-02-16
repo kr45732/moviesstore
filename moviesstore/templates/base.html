@@ -42,6 +42,10 @@
                        href="{% url 'accounts.signup' %}">
                         Sign Up
                     </a>
+                     <a class="nav-link"
+                       href="{% url 'accounts.reset' %}">
+                        Reset Password
+                    </a>
                 {% endif %}
             </div>
         </div>
@@ -94,5 +98,12 @@
     </div>
 </section>
 <!-- Footer -->
+{% if messages %}
+    {% for message in messages %}
+    <script>
+        alert("{{ message }}");
+    </script>
+    {% endfor %}
+{% endif %}
 </body>
 </html>
