@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cart</title>
+    <!-- Add Bootstrap CSS (if not already included) -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="my-4">Your Shopping Cart</h1>
+
+        <!-- Display the total to pay -->
+        <a class="btn btn-outline-secondary mb-2">
+            <b>Total to pay:</b> ${{ template_data.cart_total }}
+        </a>
+
+        <!-- Display the Purchase and Clear buttons if there are movies in the cart -->
+        {% if template_data.movies_in_cart|length > 0 %}
+            <a href="{% url 'cart.purchase' %}" class="btn bg-dark text-white mb-2">
+                Purchase
+            </a>
+            <a href="{% url 'cart.clear' %}">
+                <button class="btn btn-danger mb-2">
+                    Remove all movies from Cart
+                </button>
+            </a>
+        {% endif %}
+
+        <!-- Display the list of movies in the cart -->
+        <ul class="list-group">
+            {% for movie in template_data.movies_in_cart %}
+                <li class="list-group-item">
+                    {{ movie.title }} - ${{ movie.price }}
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <!-- Add Bootstrap JS (if not already included) -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
