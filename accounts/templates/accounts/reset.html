@@ -8,6 +8,14 @@
                         <div class="card-body">
                             <h2>Reset Password</h2>
                             <hr/>
+
+                            {% for message in messages %}
+                                <div class="alert alert-success">
+                                    <a class="close" href="#" data-dismiss="alert"></a>
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+
                             <form method="POST">
                                 {% csrf_token %}
                                 {{ template_data.form.as_p }}
