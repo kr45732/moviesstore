@@ -8,6 +8,16 @@ from django.shortcuts import render
 from .forms import CustomUserCreationForm, CustomErrorList, CustomUserResetForm
 from .models import CustomUser
 
+from django.contrib.auth.models import User
+
+@login_required
+def orders(request):
+    template_data = {}
+    template_data['title'] = 'Orders'
+    template_data['orders'] = request.user.order_set.all()
+    return render(request, 'accounts/orders.html',
+        {'template_data': template_data})
+
 
 @login_required
 def logout(request):
